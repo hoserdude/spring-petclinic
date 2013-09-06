@@ -7,17 +7,30 @@
 
     <!-- To enable JMX Management -->
     <jmxConfigurator/>
-
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/Users/thobson/logs/petclinic.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	      <!-- daily rollover -->
+	      <fileNamePattern>logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
+	
+	      <!-- keep 30 days' worth of history -->
+	      <maxHistory>30</maxHistory>
+	    </rollingPolicy>
+	    <encoder>
+            <pattern>%date LogLevel=%level; thread=[%thread]; sessionId=%X{sessionId}; requestId=%X{requestId}; category=%logger; ipAddress=%X{ipAddress}; user=%X{principal}; requestUri=%X{req.requestURI}; userAgent=%X{req.userAgent}; %msg%n</pattern>
+    	</encoder>
+    </appender>
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%-5level %logger{0} - %msg%n</pattern>
+            <pattern>%date LogLevel=%level; thread=[%thread]; sessionId=%X{sessionId}; requestId=%X{requestId}; category=%logger; ipAddress=%X{ipAddress}; user=%X{principal}; requestUri=%X{req.requestURI}; userAgent=%X{req.userAgent}; %msg%n</pattern>
         </encoder>
     </appender>
 
 	<!--<logger name="org.hibernate" level="debug"/> -->
-    <logger name="org.springframework.samples.petclinic" level="debug"/>
+    <logger name="org.springframework.samples.petclinic" level="info"/>
          
     <root level="info">
         <appender-ref ref="console"/>
+        <appender-ref ref="FILE" />
     </root>
 </configuration>

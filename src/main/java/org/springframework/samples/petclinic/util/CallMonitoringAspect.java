@@ -80,6 +80,7 @@ public class CallMonitoringAspect {
                 return joinPoint.proceed();
             } finally {
                 sw.stop();
+                System.out.println(sw.prettyPrint());
                 synchronized (this) {
                     this.callCount++;
                     this.accumulatedCallTime += sw.getTotalTimeMillis();

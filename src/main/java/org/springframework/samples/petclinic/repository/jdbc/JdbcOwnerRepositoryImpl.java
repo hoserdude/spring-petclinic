@@ -37,6 +37,7 @@ import org.springframework.samples.petclinic.model.Visit;
 import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.samples.petclinic.repository.VisitRepository;
 import org.springframework.samples.petclinic.util.EntityUtils;
+import org.springframework.samples.petclinic.util.Instrumentable;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -50,6 +51,7 @@ import org.springframework.stereotype.Repository;
  * @author Mark Fisher
  */
 @Repository
+@Instrumentable
 public class JdbcOwnerRepositoryImpl implements OwnerRepository {
 
     private VisitRepository visitRepository;
