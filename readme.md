@@ -9,14 +9,18 @@
 ### Aspects
 * A new Aspect was introduced which provided time tracing for certain classes and methods
 * This Aspect takes advantage of the object proxy the Spring DI container provides, to perform "before and after" logic that is then logged.
+
 ### Attributes
 * A new attribute (@Instrumentable) was introduced as a Marker to indicate what classes and/or methods were to be instrumented.
+
 ### Interceptors
 * A new interceptor was introduced to set vital context based on incoming Web requests.
+
 ### Logging and MDC
 * System.out calls were replaced with proper logging (SLF4J + Logback) calls.
 * Log Patterns were introduced in the log configuration
 * Mapped Diagnostic Context (MDC) was leveraged to set context when required (see Interceptors) and write context with all subsequent downstream calls. 
+
 ### Security
 * A simple Spring Security integration was created in order to demonstrate the utility of having the Principal in the log context
 
