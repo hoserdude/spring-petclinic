@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="30 seconds">
-
+	<property name="LOG_HOME" value="/Users/thobson/Library/Logs" />
     <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
         <resetJUL>true</resetJUL>
     </contextListener>
@@ -8,7 +8,7 @@
     <!-- To enable JMX Management -->
     <jmxConfigurator/>
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/Users/thobson/logs/petclinic.log</file>
+        <file>${LOG_HOME}/petclinic.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 	      <!-- daily rollover -->
 	      <fileNamePattern>logFile.%d{yyyy-MM-dd}.log</fileNamePattern>
