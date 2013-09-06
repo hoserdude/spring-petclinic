@@ -1,4 +1,24 @@
-# Spring PetClinic Sample Application
+# Spring PetClinic Sample Application - Instrumented
+
+## Why this fork?
+* The goal of this fork is to demonstrate how to instrument an application using aspect-oriented programming techniques in concert with logging context and output patterns.
+* The Spring PetClinic is the de-facto reference application for Spring, and I am just taking advantage of it being in a build-able, runnable state.
+* Hopefully this "makeover" shows how you can quickly create highly instrumented applications without interfering (much) with your existing codebase
+
+## What is different?
+### Aspects
+* A new Aspect was introduced which provided time tracing for certain classes and methods
+* This Aspect takes advantage of the object proxy the Spring DI container provides, to perform "before and after" logic that is then logged.
+### Attributes
+* A new attribute (@Instrumentable) was introduced as a Marker to indicate what classes and/or methods were to be instrumented.
+### Interceptors
+* A new interceptor was introduced to set vital context based on incoming Web requests.
+### Logging and MDC
+* System.out calls were replaced with proper logging (SLF4J + Logback) calls.
+* Log Patterns were introduced in the log configuration
+* Mapped Diagnostic Context (MDC) was leveraged to set context when required (see Interceptors) and write context with all subsequent downstream calls. 
+### Security
+* A simple Spring Security integration was created in order to demonstrate the utility of having the Principal in the log context
 
 ## Understanding the Spring Petclinic application with a few diagrams
 <a href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">See the presentation here</a>
