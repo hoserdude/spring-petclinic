@@ -55,57 +55,60 @@ public class ClinicServiceImpl implements ClinicService {
         this.visitRepository = visitRepository;
     }
 
+    @Instrumentable
     @Override
     @Transactional(readOnly = true)
     public Collection<PetType> findPetTypes() throws DataAccessException {
         return petRepository.findPetTypes();
     }
 
+    @Instrumentable
     @Override
     @Transactional(readOnly = true)
     public Owner findOwnerById(int id) throws DataAccessException {
         return ownerRepository.findById(id);
     }
 
+    @Instrumentable
     @Override
     @Transactional(readOnly = true)
     public Collection<Owner> findOwnerByLastName(String lastName) throws DataAccessException {
         return ownerRepository.findByLastName(lastName);
     }
 
+    @Instrumentable
     @Override
     @Transactional
     public void saveOwner(Owner owner) throws DataAccessException {
         ownerRepository.save(owner);
     }
 
-
+    @Instrumentable
     @Override
     @Transactional
     public void saveVisit(Visit visit) throws DataAccessException {
         visitRepository.save(visit);
     }
 
-
+    @Instrumentable
     @Override
     @Transactional(readOnly = true)
     public Pet findPetById(int id) throws DataAccessException {
         return petRepository.findById(id);
     }
 
+    @Instrumentable    
     @Override
     @Transactional
     public void savePet(Pet pet) throws DataAccessException {
         petRepository.save(pet);
     }
 
+    @Instrumentable    
     @Override
     @Transactional(readOnly = true)
     @Cacheable(value = "vets")
-    @Instrumentable
     public Collection<Vet> findVets() throws DataAccessException {
         return vetRepository.findAll();
     }
-
-
 }

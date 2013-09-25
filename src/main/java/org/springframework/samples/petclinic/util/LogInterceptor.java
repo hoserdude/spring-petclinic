@@ -39,7 +39,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class LogInterceptor extends HandlerInterceptorAdapter {
 	
 	public static final String START_TIME = "startTime";
-	public static final String PRINCIPAL2 = "principal";
+	public static final String PRINCIPAL = "principal";
 	public static final String ANONYMOUS = "anonymous";
 	public static final String IP_ADDRESS = "ipAddress";
 	public static final String REQUEST_ID = "requestId";
@@ -64,7 +64,7 @@ public class LogInterceptor extends HandlerInterceptorAdapter {
 		if (principal != null) {
 			principalName = principal.getName();
 		} 
-		MDC.put(PRINCIPAL2, principalName);
+		MDC.put(PRINCIPAL, principalName);
 
 
 		return true;
@@ -80,5 +80,10 @@ public class LogInterceptor extends HandlerInterceptorAdapter {
 		long executeTime = endTime - startTime;
 		
 		logger.info("method=" + request.getMethod() + "; time=" + executeTime);
+		
+		MDC.remove(SESSION_ID);
+		MDC.remove(REQUEST_ID);
+		MDC.remove(IP_ADDRESS);
+		MDC.remove(PRINCIPAL);
 	}
 }
