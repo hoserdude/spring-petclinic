@@ -41,9 +41,11 @@
 	<mvc:interceptors>
 		<bean class="org.springframework.samples.petclinic.util.LogInterceptor" />
 
-		<!-- This bit of XML will apply certain URLs to certain interceptors <mvc:interceptor> 
-			<mvc:mapping path="/api/v1/**" /> <bean class="com.intuit.ipp.feed.web.interceptor.AuthInterceptor" 
-			/> </mvc:interceptor> -->
+		<!-- This bit of XML will apply certain URLs to certain interceptors 
+		<mvc:interceptor> 
+			<mvc:mapping path="/api/v1/**" /> 
+				<bean class="com.stuff.AuthInterceptor" /> 
+		</mvc:interceptor> -->
 	</mvc:interceptors>
 
 	<!-- - Message source for this context, loaded from localized "messages_xx" 

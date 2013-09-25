@@ -89,6 +89,8 @@ see here: http://static.springsource.org/spring/docs/current/spring-framework-re
 	<filter-mapping>
 	    <filter-name>springSecurityFilterChain</filter-name>
 	    <url-pattern>/*</url-pattern>
+	    <dispatcher>REQUEST</dispatcher>
+    	<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
     <filter>
         <filter-name>httpMethodFilter</filter-name>

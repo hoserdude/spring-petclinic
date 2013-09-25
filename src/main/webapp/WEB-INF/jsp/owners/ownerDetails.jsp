@@ -11,8 +11,8 @@
 <jsp:include page="../fragments/headTag.jsp"/>
 
 <body>
-<div class="container">
     <jsp:include page="../fragments/bodyHeader.jsp"/>
+	<div class="container">
 
     <h2>Owner Information</h2>
 

@@ -11,8 +11,8 @@
 <jsp:include page="../fragments/headTag.jsp"/>
 
 <body>
-<div class="container">
     <jsp:include page="../fragments/bodyHeader.jsp"/>
+	<div class="container">
     <h2>Owners</h2>
     
     <datatables:table id="owners" data="${selections}" cdn="true" row="owner" theme="bootstrap2" 
