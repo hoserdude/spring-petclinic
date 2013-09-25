@@ -23,7 +23,7 @@
     -->
     <aop:aspectj-autoproxy>
         <aop:include name="callMonitor"/>
-        <aop:include name="profileLogger"/>
+        <aop:include name="logAspect"/>
     </aop:aspectj-autoproxy>
 
     <!-- Call monitoring aspect that monitors call count and call invocation time -->
