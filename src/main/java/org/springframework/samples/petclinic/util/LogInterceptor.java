@@ -56,6 +56,7 @@ public class LogInterceptor extends HandlerInterceptorAdapter {
 		String sessionId = request.getSession().getId();
 		MDC.put(SESSION_ID, sessionId);
 		String requestId = String.valueOf(Math.abs(UUID.randomUUID().getMostSignificantBits()));
+        request.setAttribute("rid",requestId);
 		MDC.put(REQUEST_ID, requestId);
 		String ipAddress = IpUtils.getIpFromRequest(request);
 		MDC.put(IP_ADDRESS, ipAddress);

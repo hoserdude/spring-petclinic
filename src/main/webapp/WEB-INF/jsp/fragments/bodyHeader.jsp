@@ -1,6 +1,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!--sid=${pageContext.session.id}; rid=${rid}; -->
 <div class="container">
 	<nav class="navbar navbar-static-top">
 		<div class="navbar-inner">
